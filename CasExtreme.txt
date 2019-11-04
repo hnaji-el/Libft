@@ -1,0 +1,64 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    CasExtreme.txt                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/11/04 02:39:03 by hnaji-el          #+#    #+#              #
+#    Updated: 2019/11/04 05:20:39 by hnaji-el         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+1/ strlcat:(*dst, *src, size)
+
+Return: strlen(src) + Min(strlen(dst) + size)
+
+strlcat(NULL, "abc", 0) -------------- 3
+strlcat(NULL, "abc", 1) -------------- seg fault
+strlcat(NULL, NULL, size) ------------ seg fault
+strlcat(a[10], NULL, size) ----------- seg fault
+
+cas general: if (src == NULL) -------- seg fault
+
+2/ strlcpy:(*dst, *src, size)
+
+Return: strlen(src)
+
+strlcpy(NULL, "abc", 0) ------------- 3
+strlcpy(NULL, "abc", 1) ------------- seg fault
+strlcpy(a[10], NULL, size) ---------- seg fault
+strlcpy(NULL, NULL, size) ----------- seg fault
+
+cas general: if (src == NULL) ------- seg fault
+
+3/ strnstr:(*haystack, *needle, len)
+
+cas general: if (needle == NULL) ---- seg fault
+cas particulier: if (haystack == NULL && len = 0) ----- NULL
+
+strnstr(NULL, "NULL", 0) ------------ NULL
+strnstr(NULL, "NULL", 1) ------------ seg fault
+strnstr(NULL, "", len) -------------- NULL
+
+4/ memcpy:(*dst, *src, n)
+
+if (dst == NULL && src == NULL)
+	return(NULL);
+if (dst == src)
+	return(dst);
+
+5/ memmove:(*dst, *src, len)
+
+memmove("abc", NULL, 0) ------------- abc
+memmove("abc", NULL, 1) ------------- seg fault
+memmove(NULL, NULL, len) ------------ NULL
+memmove(NULL, "abc", 0) ------------- NULL
+memmove(NULL, "abc", 1) ------------- seg fault
+
+6/ ft_substr:(*s, start, len)
+
+if (start > strlen(s))
+	len = 0;
+et apres allocee une octet et affecte le '\0'
+
