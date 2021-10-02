@@ -1,2 +1,3 @@
-# Libft
-Ce projet a pour objectif de vous faire coder en C une librairie de fonctions usuelles que vous pourrez utiliser dans tous vos prochains projets
+# My own library
+#    Libft
+### This project aims to code a C library regrouping usual functions that you’ll be allowed to use in all your other projects.
