@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlen_2d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 14:22:51 by hnaji-el          #+#    #+#             */
-/*   Updated: 2021/09/23 16:01:48 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/01/01 17:07:50 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/09/23 16:01:04 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlen_2d(char **str)
 {
-	const unsigned char	*ss1;
-	const unsigned char	*ss2;
-	size_t				i;
-	size_t				r;
+	size_t		len;
 
-	ss1 = (const unsigned char *)s1;
-	ss2 = (const unsigned char *)s2;
-	i = 0;
-	r = 0;
-	if (n == 0)
-		return (r);
-	while ((ss1[i] == ss2[i] && ss1[i] != '\0') && i < n)
-		i++;
-	if (i == n)
-		i--;
-	r = ss1[i] - ss2[i];
-	return (r);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

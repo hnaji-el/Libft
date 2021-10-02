@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_plus_l.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnaji-el <hnaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 18:48:53 by hnaji-el          #+#    #+#             */
-/*   Updated: 2021/09/23 22:53:46 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/02/06 09:05:42 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/09/23 22:58:16 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi_plus_l(char **str)
 {
 	long	nb;
 	int		sign;
 
 	sign = 1;
 	nb = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-')
+	while ((**str >= 9 && **str <= 13) || **str == 32)
+		(*str)++;
+	if (**str == '-')
 		sign = sign * (-1);
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	if (**str == '-' || **str == '+')
+		(*str)++;
+	while (**str >= '0' && **str <= '9')
 	{
-		nb = nb * 10 + (*str - '0');
-		str++;
+		nb = nb * 10 + (**str - '0');
+		(*str)++;
 	}
 	if (nb < 0 && sign > 0)
 		return (-1);

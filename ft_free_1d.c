@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_free_1d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hnaji-el <hnaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 12:54:10 by hnaji-el          #+#    #+#             */
-/*   Updated: 2021/09/23 16:03:33 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/01/01 17:18:19 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/01/10 17:46:47 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_free_1d(void **str)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	if (*str != NULL)
+	{
+		free(*str);
+		*str = NULL;
+	}
 }

@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_free_2d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hnaji-el <hnaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 12:54:10 by hnaji-el          #+#    #+#             */
-/*   Updated: 2021/09/23 16:03:33 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/01/01 17:28:59 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/02/08 15:38:52 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_free_2d(char ***str)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	int		j;
+
+	j = 0;
+	if (*str != NULL)
+		j = ft_strlen_2d(*str);
+	while (j > 0)
+	{
+		j--;
+		free(str[0][j]);
+	}
+	free(*str);
+	*str = NULL;
 }

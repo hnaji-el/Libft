@@ -6,7 +6,7 @@
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 20:35:52 by hnaji-el          #+#    #+#             */
-/*   Updated: 2019/11/03 18:18:54 by hnaji-el         ###   ########.fr       */
+/*   Updated: 2021/01/07 09:59:52 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	int		i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	while (s[i] != '\0')
 	{

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hnaji-el <hnaji-el@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 20:16:24 by hnaji-el          #+#    #+#             */
-/*   Updated: 2019/10/29 22:22:34 by hnaji-el         ###   ########.fr       */
+/*   Updated: 2021/09/23 15:53:58 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		numstring(char const *s1, char c)
+static int	numstring(char const *s1, char c)
 {
 	int	comp;
 	int	cles;
@@ -35,7 +35,7 @@ static int		numstring(char const *s1, char c)
 	return (comp);
 }
 
-static int		numchar(char const *s2, char c, int i)
+static int	numchar(char const *s2, char c, int i)
 {
 	int	lenght;
 
@@ -48,7 +48,7 @@ static int		numchar(char const *s2, char c, int i)
 	return (lenght);
 }
 
-static char		**freee(char const **dst, int j)
+char	**freee(char **dst, int j)
 {
 	while (j > 0)
 	{
@@ -59,7 +59,7 @@ static char		**freee(char const **dst, int j)
 	return (NULL);
 }
 
-static char		**affect(char const *s, char **dst, char c, int l)
+static char	**affect(char const *s, char **dst, char c, int l)
 {
 	int	i;
 	int	j;
@@ -74,7 +74,7 @@ static char		**affect(char const *s, char **dst, char c, int l)
 			i++;
 		dst[j] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1);
 		if (dst[j] == NULL)
-			return (freee((char const **)dst, j));
+			return (freee(dst, j));
 		while (s[i] != '\0' && s[i] != c)
 			dst[j][k++] = s[i++];
 		dst[j][k] = '\0';
@@ -84,7 +84,7 @@ static char		**affect(char const *s, char **dst, char c, int l)
 	return (dst);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	int		l;

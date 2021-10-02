@@ -6,22 +6,22 @@
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 18:52:21 by hnaji-el          #+#    #+#             */
-/*   Updated: 2019/10/26 04:09:45 by hnaji-el         ###   ########.fr       */
+/*   Updated: 2021/09/23 15:38:57 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		numb(int nb)
+static int	numb(int nb)
 {
 	if (nb == 0)
 		return (1);
 	return (1 + numb(nb / 10));
 }
 
-static char		*affect(char *s, int num, int i)
+static char	*affect(char *s, int num, int i)
 {
-	unsigned int l;
+	unsigned int	l;
 
 	l = 0;
 	if (num == 0)
@@ -43,7 +43,7 @@ static char		*affect(char *s, int num, int i)
 	return (s);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		len;
 	char	*dst;

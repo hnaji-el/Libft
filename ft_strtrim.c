@@ -6,13 +6,13 @@
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 22:58:19 by hnaji-el          #+#    #+#             */
-/*   Updated: 2019/10/30 21:41:40 by hnaji-el         ###   ########.fr       */
+/*   Updated: 2021/09/23 16:02:56 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		compi(char const *ss1, char const *set1, int indexp, int j)
+static int	compi(char const *ss1, char const *set1, int indexp, int j)
 {
 	while (ss1[indexp] != '\0' && set1[j] != '\0')
 	{
@@ -27,7 +27,7 @@ static int		compi(char const *ss1, char const *set1, int indexp, int j)
 	return (indexp);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int				indexi;
 	int				indexf;

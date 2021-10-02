@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_num_word.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 14:22:51 by hnaji-el          #+#    #+#             */
-/*   Updated: 2021/09/23 16:01:48 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/09/23 15:40:42 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/09/23 15:41:26 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_num_word(char const *s1)
 {
-	const unsigned char	*ss1;
-	const unsigned char	*ss2;
-	size_t				i;
-	size_t				r;
+	int	comp;
+	int	cles;
 
-	ss1 = (const unsigned char *)s1;
-	ss2 = (const unsigned char *)s2;
-	i = 0;
-	r = 0;
-	if (n == 0)
-		return (r);
-	while ((ss1[i] == ss2[i] && ss1[i] != '\0') && i < n)
-		i++;
-	if (i == n)
-		i--;
-	r = ss1[i] - ss2[i];
-	return (r);
+	comp = 0;
+	cles = 0;
+	if (*s1 == '\0')
+		return (0);
+	while (*s1 != '\0')
+	{
+		if (*s1 == ' ' || *s1 == '\t')
+			cles = 0;
+		else if (cles == 0)
+		{
+			cles = 1;
+			comp++;
+		}
+		s1++;
+	}
+	return (comp);
 }

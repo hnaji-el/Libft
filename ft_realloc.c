@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 14:22:51 by hnaji-el          #+#    #+#             */
-/*   Updated: 2021/09/23 16:01:48 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/09/23 15:49:44 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/09/23 15:49:51 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_realloc(void *old_alloc, size_t old_size, size_t new_size)
 {
-	const unsigned char	*ss1;
-	const unsigned char	*ss2;
-	size_t				i;
-	size_t				r;
+	unsigned char	*old_alloc_t;
+	unsigned char	*new_alloc;
+	size_t			i;
 
-	ss1 = (const unsigned char *)s1;
-	ss2 = (const unsigned char *)s2;
 	i = 0;
-	r = 0;
-	if (n == 0)
-		return (r);
-	while ((ss1[i] == ss2[i] && ss1[i] != '\0') && i < n)
+	if (old_alloc == NULL)
+		return (malloc(new_size));
+	old_alloc_t = (unsigned char *)old_alloc;
+	new_alloc = (unsigned char *)malloc(new_size);
+	if (new_alloc == NULL)
+		return (NULL);
+	while (i < old_size && i < new_size)
+	{
+		new_alloc[i] = old_alloc_t[i];
 		i++;
-	if (i == n)
-		i--;
-	r = ss1[i] - ss2[i];
-	return (r);
+	}
+	free(old_alloc);
+	return (new_alloc);
 }

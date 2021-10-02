@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_reallocf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnaji-el <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 18:01:25 by hnaji-el          #+#    #+#             */
-/*   Updated: 2019/10/29 21:09:30 by hnaji-el         ###   ########.fr       */
+/*   Created: 2021/09/23 15:52:06 by hnaji-el          #+#    #+#             */
+/*   Updated: 2021/09/23 15:52:11 by hnaji-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_reallocf(void *old_alloc, size_t old_size, size_t new_size)
 {
-	char	*dst;
-	size_t	i;
+	unsigned char	*old_alloc_t;
+	unsigned char	*new_alloc;
+	size_t			i;
 
 	i = 0;
-	if (s == NULL)
-		return (NULL);
-	if (start > ft_strlen(s))
-		len = 0;
-	dst = (char *)malloc(len + 1);
-	if (dst == NULL)
-		return (NULL);
-	while (i < len && s[start] != '\0')
+	if (old_alloc == NULL)
+		return (malloc(new_size));
+	old_alloc_t = (unsigned char *)old_alloc;
+	new_alloc = (unsigned char *)malloc(new_size);
+	if (new_alloc == NULL)
 	{
-		dst[i] = s[start];
-		start++;
+		free(old_alloc);
+		return (NULL);
+	}
+	while (i < old_size && i < new_size)
+	{
+		new_alloc[i] = old_alloc_t[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	free(old_alloc);
+	return (new_alloc);
 }
